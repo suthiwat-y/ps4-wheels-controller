@@ -17,8 +17,6 @@ USB Usb;
 BTD Btd(&Usb);
 PS4BT PS4(&Btd, PAIR);
 
-char type; 
-
 class Wheel {
   public:
   int spinPin;
@@ -85,7 +83,7 @@ int TURNING_SPEED = 55;
 void setup() {
   Serial.begin(115200);
 #if !defined(__MIPSEL__)
-  while (!Serial); // Wait for serial port to connect 
+  while (!Serial);
 #endif
   if (Usb.Init() == -1) {
     Serial.print(F("\r\nOSC did not start"));
@@ -102,7 +100,6 @@ void setup() {
 void loop() 
 {
   Usb.Task();
-  type = Serial.read(); 
   if (PS4.connected()) {
     Serial.print("PS4 connected");
     if (PS4.getButtonClick(UP)) {
