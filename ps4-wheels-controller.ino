@@ -1,3 +1,10 @@
+/* Written by:  Suthiwat Y.
+               (Machine Learning Engineer)
+   Motor controls using PS4 controller
+   Date April 19,2021
+   ©2021 All Rights Reserved. mμ Space Corp® is a registered trademark of mμ Space and Advanced Technology Co., Ltd. 
+*/
+
 #include <PS4BT.h>
 #include <usbhub.h>
 
