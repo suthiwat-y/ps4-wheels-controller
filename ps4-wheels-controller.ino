@@ -72,10 +72,10 @@ class Wheel {
     }
 };
 
-Wheel FRONT_LEFT(7, 25, 29, 21); //reversePin LOW for CW spin, HIGH for CCW spin
-Wheel FRONT_RIGHT(6, 24, 28, 20);
-Wheel BACK_LEFT(5, 23, 27, 19);
-Wheel BACK_RIGHT(4, 22, 26, 18);
+Wheel FRONT_LEFT(7, 22, 23, 21); //reversePin LOW for CW spin, HIGH for CCW spin
+Wheel FRONT_RIGHT(6, 24, 25, 20);
+Wheel BACK_LEFT(5, 26, 27, 19);
+Wheel BACK_RIGHT(4, 28, 29, 18);
  
 int SPEED = 45;
 int TURNING_SPEED = 55;        
