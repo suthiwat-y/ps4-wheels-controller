@@ -1,0 +1,6 @@
+{
+    "configuration": "cpu=atmega2560",
+    "board": "arduino:avr:mega",
+    "sketch": "ps4-wheels-controller.ino",
+    "port": "/dev/tty.usbmodem142201"
+}
