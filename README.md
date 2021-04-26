@@ -1,5 +1,5 @@
 This is an arduino module used to control a specific mobile robot
-which is currently under development using a PS4 controllers.
+which is currently under development using a PS4 controller.
 
 `ps4-wheels-controller.ino` is used with Arduino Mega 2560. The pin setup is documented below.
 
