@@ -1,8 +1,8 @@
 /* Written by:  Suthiwat Y.
-               (Machine Learning Engineer)
-   Motor controls using PS4 controller
+               (Software Engineer)
+   Improved version for motor controls using left analog hat on PS4 joystick
+   Support every direction other than 4 basic directions in v1
    Date May 13,2021
-   ©2021 All Rights Reserved. mμ Space Corp® is a registered trademark of mμ Space and Advanced Technology Co., Ltd. 
 */
 
 #include <PS4BT.h>
@@ -45,7 +45,7 @@ void setup() {
   FRONT_LEFT.setSerialPort(&Serial1);
   FRONT_RIGHT.setSerialPort(&Serial2);
   BACK_LEFT.setSerialPort(&Serial3);
-  BACK_RIGHT.setSerialPort(&Serial);//
+  BACK_RIGHT.setSerialPort(&Serial);
 }
 
 void loop() 

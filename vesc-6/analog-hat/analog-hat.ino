@@ -1,13 +1,14 @@
 /* Written by:  Suthiwat Y.
-               (Machine Learning Engineer)
-   Motor controls using PS4 controller
+               (Software Engineer)
+   Motor controls using left analog hat on PS4 joystick
+   4 directions with constant speeds: forward, backward, left turn, and right turn
    Date May 11,2021
-   ©2021 All Rights Reserved. mμ Space Corp® is a registered trademark of mμ Space and Advanced Technology Co., Ltd. 
 */
 
 #include <PS4BT.h>
 #include <usbhub.h>
 #include <VescUart.h>
+#include <SoftwareSerial.h>
 
 #ifdef dobogusinclude
 #include <spi4teensy3.h>
@@ -20,7 +21,10 @@ BTD Btd(&Usb);
 PS4BT PS4(&Btd, PAIR);
 
 //VESC
-VescUart VESC;
+VescUart FRONT_LEFT;
+VescUart FRONT_RIGHT;
+VescUart BACK_LEFT;
+VescUart BACK_RIGHT;
 
 void setup() {
   Serial.begin(115200);
@@ -34,8 +38,14 @@ void setup() {
   Serial.print(F("\r\nPS4 Bluetooth Library Started"));
 
   //VescUart
-//  Serial3.begin(115200);
-  VESC.setSerialPort(&Serial);
+  Serial1.begin(115200);
+  Serial2.begin(115200);
+  Serial3.begin(115200);
+  
+  FRONT_LEFT.setSerialPort(&Serial1);
+  FRONT_RIGHT.setSerialPort(&Serial2);
+  BACK_LEFT.setSerialPort(&Serial3);
+  BACK_RIGHT.setSerialPort(&Serial);
 }
 
 void loop() 
@@ -73,21 +83,36 @@ void loop()
 }
 
 void moveStop() {
-  VESC.setDuty(0.00);
+  FRONT_LEFT.setDuty(0.00);
+  FRONT_RIGHT.setDuty(0.00);
+  BACK_LEFT.setDuty(0.00);
+  BACK_RIGHT.setDuty(0.00);
 }
 
 void moveForward() {
-  VESC.setDuty(0.1);
+  FRONT_LEFT.setDuty(0.20);
+  FRONT_RIGHT.setDuty(0.20);
+  BACK_LEFT.setDuty(0.20);
+  BACK_RIGHT.setDuty(0.20);
 }
 
 void moveLeft() {
-  VESC.setDuty(-0.1);
+  FRONT_LEFT.setDuty(-0.25);
+  FRONT_RIGHT.setDuty(0.25);
+  BACK_LEFT.setDuty(-0.25);
+  BACK_RIGHT.setDuty(0.25);
 }
 
 void moveRight() {
-  VESC.setDuty(0.1);
+  FRONT_LEFT.setDuty(0.25);
+  FRONT_RIGHT.setDuty(-0.25);
+  BACK_LEFT.setDuty(0.25);
+  BACK_RIGHT.setDuty(-0.25);
 }
 
 void moveBackward() {
-  VESC.setDuty(-0.1);
+  FRONT_LEFT.setDuty(-0.20);
+  FRONT_RIGHT.setDuty(-0.20);
+  BACK_LEFT.setDuty(-0.20);
+  BACK_RIGHT.setDuty(-0.20);
 }
