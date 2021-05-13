@@ -1,7 +1,7 @@
 /* Written by:  Suthiwat Y.
                (Software Engineer)
    Improved version for motor controls using left analog hat on PS4 joystick
-   Support every direction other than 4 basic directions in v1
+   Support every direction other than 4 basic directions in the previous version
    Date May 13,2021
 */
 
